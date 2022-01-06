@@ -1,0 +1,12 @@
+com\agile\authapp\UserNameValidator.class
+com\agile\authapp\UserAccountService.class
+com\agile\authapp\UserAccountCreationStatus.class
+com\agile\authapp\Credential.class
+com\agile\authapp\UserAccountFileWriter.class
+com\agile\authapp\AuthService.class
+com\agile\authapp\UserAccountsProvider.class
+com\agile\authapp\App.class
+com\agile\authapp\UsersAccount.class
+com\agile\authapp\Validator.class
+com\agile\authapp\User.class
+com\agile\authapp\PasswordValidator.class

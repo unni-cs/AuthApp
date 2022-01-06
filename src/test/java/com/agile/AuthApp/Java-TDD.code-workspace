@@ -1,13 +1,13 @@
 {
 	"folders": [
 		{
-			"path": "..\\..\\..\\..\\..\\.."
-		},
-		{
 			"path": "..\\..\\..\\..\\..\\..\\..\\..\\TDDPracticeProject"
 		},
 		{
 			"path": "..\\..\\..\\..\\..\\..\\..\\..\\RockPaperScissors"
+		},
+		{
+			"path": "..\\..\\..\\..\\..\\..\\..\\..\\BowlingScoreKata\\BowlingScoreApp"
 		}
 	],
 	"settings": {

@@ -1,4 +1,4 @@
-package com.agile.AuthApp;
+package com.agile.authapp;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.doAnswer;

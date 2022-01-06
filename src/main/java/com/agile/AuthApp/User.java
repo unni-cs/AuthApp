@@ -1,4 +1,4 @@
-package com.agile.AuthApp;
+package com.agile.authapp;
 
 public class User {
     

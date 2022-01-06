@@ -1,4 +1,4 @@
-package com.agile.AuthApp;
+package com.agile.authapp;
 
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;

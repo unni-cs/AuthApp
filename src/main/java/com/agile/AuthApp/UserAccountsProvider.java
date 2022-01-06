@@ -1,4 +1,4 @@
-package com.agile.AuthApp;
+package com.agile.authapp;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,8 +18,7 @@ public class UserAccountsProvider {
     public UsersAccount getUserAccounts() throws IOException {
         String path = file.getAbsolutePath();
         String fileContent = new String(Files.readAllBytes(Paths.get(path)));        
-        UsersAccount usersAccount = new Gson().fromJson(fileContent, UsersAccount.class);    
-        return usersAccount;
+        return new Gson().fromJson(fileContent, UsersAccount.class);    
     }
 
     public UserAccountCreationStatus saveUserAccount(String userName, String password) throws JsonIOException, JsonSyntaxException, IOException {

@@ -1,4 +1,4 @@
-package com.agile.AuthApp;
+package com.agile.authapp;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -83,8 +83,7 @@ public class App
     }
 
     public boolean ShowMsg(){
-        boolean result =  anotherMessage();
-        return result;
+        return anotherMessage();
     }
 
     public boolean anotherMessage(){
