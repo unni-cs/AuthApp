@@ -4,7 +4,7 @@ import junit.framework.TestCase;
 
 public class UserNameValidatorTest extends TestCase{
     
-    Validator validator = new UserNameValidator();
+    IValidator validator = new UserNameValidator();
 
     public void test_WithProperUserName_ShouldReturnTrue(){
         //Given

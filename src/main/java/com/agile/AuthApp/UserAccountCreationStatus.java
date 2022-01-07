@@ -1,14 +1,14 @@
 package com.agile.authapp;
 
 public class UserAccountCreationStatus {
-    boolean IsAccountCreationSuccess;
-    String UserNameValidationMessage;
-    String PasswordValidationMessage;
-    public UserAccountCreationStatus(boolean IsAccountCreationSuccess,
-                                    String UserNameValidationMessage,
-                                    String PasswordValidationMessage) {
-        this.IsAccountCreationSuccess = IsAccountCreationSuccess;
-        this.UserNameValidationMessage = UserNameValidationMessage;
-        this.PasswordValidationMessage = PasswordValidationMessage;        
+    boolean isAccountCreationSuccess;
+    String userNameValidationMessage;
+    String passwordValidationMessage;
+    public UserAccountCreationStatus(boolean isAccountCreationSuccess,
+                                    String userNameValidationMessage,
+                                    String passwordValidationMessage) {
+        this.isAccountCreationSuccess = isAccountCreationSuccess;
+        this.userNameValidationMessage = userNameValidationMessage;
+        this.passwordValidationMessage = passwordValidationMessage;        
     }    
 }

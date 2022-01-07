@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="4" failures="0" name="com.agile.authapp.AuthServiceTest" time="0.099" errors="0" skipped="0">
+<testsuite tests="4" failures="0" name="com.agile.authapp.AuthServiceTest" time="0.014" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="java.vm.version" value="11.0.9+7-LTS"/>
@@ -29,7 +29,7 @@
     <property name="classworlds.conf" value="C:/Maven-3.6.3/bin/m2.conf"/>
     <property name="sun.jnu.encoding" value="Cp1252"/>
     <property name="sonar.login" value="4d01ffbf7819316dba9b854a54793c85e506baa5"/>
-    <property name="java.library.path" value="C:\Program Files\Java\jdk-11.0.9\bin;C:\windows\Sun\Java\bin;C:\windows\system32;C:\windows;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\unnikrishnan.c.s\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0;C:\windows\System32\OpenSSH;C:\Program Files (x86)\Pulse Secure\VC142.CRT\X64;C:\Program Files (x86)\Pulse Secure\VC142.CRT\X86;C:\Program Files (x86)\Common Files\Pulse Secure\VC142.CRT\X64;C:\Program Files (x86)\Common Files\Pulse Secure\VC142.CRT\X86;C:\Program Files\dotnet;C:\Program Files\Java\jdk-11.0.9\bin;C:\Maven-3.6.3\bin;C:\Program Files\Git\cmd;C:\Users\unnikrishnan.c.s\AppData\Local\Microsoft\WindowsApps;C:\Users\unnikrishnan.c.s\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\unnikrishnan.c.s\.dotnet\tools;."/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-11.0.9\bin;C:\windows\Sun\Java\bin;C:\windows\system32;C:\windows;C:\Users\unnikrishnan.c.s\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\unnikrishnan.c.s\bin;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0;C:\windows\System32\OpenSSH;C:\Program Files (x86)\Pulse Secure\VC142.CRT\X64;C:\Program Files (x86)\Pulse Secure\VC142.CRT\X86;C:\Program Files (x86)\Common Files\Pulse Secure\VC142.CRT\X64;C:\Program Files (x86)\Common Files\Pulse Secure\VC142.CRT\X86;C:\Program Files\dotnet;C:\Program Files\Java\jdk-11.0.9\bin;C:\Maven-3.6.3\bin;C:\Program Files\Git\cmd;C:\Users\unnikrishnan.c.s\AppData\Local\Microsoft\WindowsApps;C:\Users\unnikrishnan.c.s\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\unnikrishnan.c.s\.dotnet\tools;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl;."/>
     <property name="maven.conf" value="C:/Maven-3.6.3/conf"/>
     <property name="jdk.debug" value="release"/>
     <property name="java.class.version" value="55.0"/>
@@ -68,8 +68,8 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="com.agile.authapp.AuthServiceTest" name="test_WithWrongUserName_ShouldReturnErrorMessage" time="0.089"/>
-  <testcase classname="com.agile.authapp.AuthServiceTest" name="test_WithWrongPassword_ShouldReturnErrorMessage" time="0.006"/>
-  <testcase classname="com.agile.authapp.AuthServiceTest" name="test_WithRightCredentials_ShouldAuthenticateUser" time="0.002"/>
-  <testcase classname="com.agile.authapp.AuthServiceTest" name="test_WithWrongUsernameAndPassword_ShouldReturnInvalidUserNameMessage" time="0.002"/>
+  <testcase classname="com.agile.authapp.AuthServiceTest" name="test_WithWrongUserName_ShouldReturnErrorMessage" time="0.011"/>
+  <testcase classname="com.agile.authapp.AuthServiceTest" name="test_WithWrongPassword_ShouldReturnErrorMessage" time="0.001"/>
+  <testcase classname="com.agile.authapp.AuthServiceTest" name="test_WithRightCredentials_ShouldAuthenticateUser" time="0.001"/>
+  <testcase classname="com.agile.authapp.AuthServiceTest" name="test_WithWrongUsernameAndPassword_ShouldReturnInvalidUserNameMessage" time="0.001"/>
 </testsuite>

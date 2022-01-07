@@ -4,7 +4,6 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import java.io.IOException;
-import java.util.ArrayList;
 
 import junit.framework.TestCase;
 
@@ -22,7 +21,7 @@ public class AuthServiceTest extends TestCase{
         User actual = authService.authenticateUser(userName, password);
 
         //Then
-        assertTrue(actual.IsAuthenticated);
+        assertTrue(actual.isAuthenticated());
     }
 
     public void test_WithWrongUserName_ShouldReturnErrorMessage() throws IOException{
@@ -35,8 +34,8 @@ public class AuthServiceTest extends TestCase{
         User actual = authService.authenticateUser(userName, password);
 
         //Then
-        assertFalse(actual.IsAuthenticated);
-        assertEquals("Login failed. Invalid username" ,actual.ErrorMessage);
+        assertFalse(actual.isAuthenticated());
+        assertEquals("Login failed. Invalid username" ,actual.errorMessage());
     }
 
     public void test_WithWrongPassword_ShouldReturnErrorMessage() throws IOException{
@@ -49,8 +48,8 @@ public class AuthServiceTest extends TestCase{
         User actual = authService.authenticateUser(userName, password);
 
         //Then
-        assertFalse(actual.IsAuthenticated);
-        assertEquals("Login failed. Invalid password" ,actual.ErrorMessage);
+        assertFalse(actual.isAuthenticated());
+        assertEquals("Login failed. Invalid password" ,actual.errorMessage());
     }
 
     public void test_WithWrongUsernameAndPassword_ShouldReturnInvalidUserNameMessage() throws IOException{
@@ -63,15 +62,14 @@ public class AuthServiceTest extends TestCase{
         User actual = authService.authenticateUser(userName, password);
 
         //Then
-        assertFalse(actual.IsAuthenticated);
-        assertEquals("Login failed. Invalid username" ,actual.ErrorMessage);
+        assertFalse(actual.isAuthenticated());
+        assertEquals("Login failed. Invalid username" ,actual.errorMessage());
     }
 
     private UsersAccount getTestData(){
         UsersAccount usersAccount = new UsersAccount();
-        usersAccount.Credentials = new ArrayList<Credential>();
-        Credential credential = new Credential(){{UserName = "testuser"; Password ="666";}};
-        usersAccount.Credentials.add(credential);
+        Credential credential = new Credential("testuser" ,"666");
+        usersAccount.addCredential(credential);
         return usersAccount;
     }
 

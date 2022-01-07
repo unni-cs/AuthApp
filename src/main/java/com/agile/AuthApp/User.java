@@ -2,11 +2,19 @@ package com.agile.authapp;
 
 public class User {
     
-    public boolean IsAuthenticated;
-    public String ErrorMessage;
+    private boolean isAuthenticated;
+    private String errorMessage;
 
     public User(boolean isAuthenticated, String errorMessage) {
-        IsAuthenticated = isAuthenticated;
-        ErrorMessage = errorMessage;
+        this.isAuthenticated = isAuthenticated;
+        this.errorMessage = errorMessage;
+    }
+
+    public boolean isAuthenticated(){
+        return this.isAuthenticated;
+    }
+
+    public String errorMessage(){
+        return this.errorMessage;
     }
 }

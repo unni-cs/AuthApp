@@ -6,23 +6,23 @@ import java.util.Optional;
 public class AuthService {
 
     UserAccountsProvider userAccountsProvider = new UserAccountsProvider();
-    private String invalidUserName = "Login failed. Invalid username";
-    private String invalidPassword = "Login failed. Invalid password";
+    private static final String INVALIDUSERNAME = "Login failed. Invalid username";
+    private static final String INVALIDPASSWORD = "Login failed. Invalid password";
     
     public User authenticateUser(String userName, String password) throws IOException{
         UsersAccount usersAccount = userAccountsProvider.getUserAccounts();  
-        Optional<Credential> credential = usersAccount.Credentials.stream().filter(x -> x.UserName.equals(userName)).findFirst();
+        Optional<Credential> credential = usersAccount.credentials().stream().filter(x -> x.userName().equals(userName)).findFirst();
         
         if(credential.isPresent()){
-            if(credential.get().Password.equals(password)){
+            if(credential.get().password().equals(password)){
                 return new User(true, null);
             }
             else{
-                return new User(false, invalidPassword);
+                return new User(false, INVALIDPASSWORD);
             }
         }
         else{
-            return new User(false, invalidUserName);
+            return new User(false, INVALIDUSERNAME);
         }
     }
 }

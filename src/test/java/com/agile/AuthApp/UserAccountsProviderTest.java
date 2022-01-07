@@ -9,7 +9,6 @@ import static org.mockito.Mockito.when;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
 
 import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
@@ -33,10 +32,10 @@ public class UserAccountsProviderTest extends TestCase{
 
         //Then
         assertNotNull(usersAccount);
-        assertNotNull(usersAccount.Credentials);
-        assertTrue(usersAccount.Credentials.size()>0);
-        assertEquals("testuser", usersAccount.Credentials.get(0).UserName);
-        assertEquals("9898abc1234", usersAccount.Credentials.get(0).Password);
+        assertNotNull(usersAccount.credentials());
+        assertTrue(usersAccount.credentials().size()>0);
+        assertEquals("testuser", usersAccount.credentials().get(0).userName());
+        assertEquals("9898abc1234", usersAccount.credentials().get(0).password());
     }
 
     public void test_SaveUserAccount_ShouldSaveAccount() throws JsonIOException, JsonSyntaxException, IOException {
@@ -57,11 +56,8 @@ public class UserAccountsProviderTest extends TestCase{
         when(file.getAbsolutePath()).thenReturn(resourceFile.getAbsolutePath());       
         
         UsersAccount accountToVerify = new UsersAccount();
-        Credential user1 = new Credential(){{ UserName = "testuser"; Password = "9898"; }};
-        Credential user2 = new Credential(){{ UserName = userName; Password = password; }};
-        accountToVerify.Credentials = new ArrayList<Credential>();
-        accountToVerify.Credentials.add(user1);
-        accountToVerify.Credentials.add(user2);
+        Credential user = new Credential(userName,password);
+        accountToVerify.addCredential(user);
         
         doAnswer( invocation -> { //stub the fileWriter method
            String path =  invocation.getArgument(0);
@@ -69,7 +65,7 @@ public class UserAccountsProviderTest extends TestCase{
            assertEquals(resourceFile.getAbsolutePath(), path);
            assertEquals(accountToVerify, accouts);
            return null;
-        }).when(fileWriter).SaveToFile(resourceFile.getAbsolutePath(), accountToVerify);
+        }).when(fileWriter).saveToFile(resourceFile.getAbsolutePath(), accountToVerify);
 
         when(userAccountsProvider.saveUserAccount(userName, password)).thenCallRealMethod();        
 
@@ -78,7 +74,7 @@ public class UserAccountsProviderTest extends TestCase{
         
         //Then
         assertNotNull(accountSaved);
-        assertTrue(accountSaved.IsAccountCreationSuccess);
-        verify(fileWriter, times(1)).SaveToFile(any(String.class), any(UsersAccount.class));
+        assertTrue(accountSaved.isAccountCreationSuccess);
+        verify(fileWriter, times(1)).saveToFile(any(String.class), any(UsersAccount.class));
     }
 }

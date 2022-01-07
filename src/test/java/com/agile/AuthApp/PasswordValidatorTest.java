@@ -4,7 +4,7 @@ import junit.framework.TestCase;
 
 public class PasswordValidatorTest extends TestCase{
     
-    Validator validator = new PasswordValidator();
+    IValidator validator = new PasswordValidator();
 
     public void test_WhenGivenProperPassword_ShouldReturnTrue(){
         //Given

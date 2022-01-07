@@ -11,8 +11,8 @@ import com.google.gson.JsonIOException;
 import com.google.gson.JsonSyntaxException;
 
 public class UserAccountsProvider {   
-    String resourceFilePath = "resources/UserAccounts.json";
-    File file = new File(resourceFilePath);
+    private static final String RESOURCEFILEPATH = "resources/UserAccounts.json";
+    File file = new File(RESOURCEFILEPATH);
     UserAccountFileWriter fileWriter = new UserAccountFileWriter();
 
     public UsersAccount getUserAccounts() throws IOException {
@@ -27,11 +27,9 @@ public class UserAccountsProvider {
         String fileContent = new String(Files.readAllBytes(filePath));        
         UsersAccount usersAccount = new Gson().fromJson(fileContent, UsersAccount.class);    
         
-        Credential userCredential = new Credential();
-        userCredential.UserName = userName;
-        userCredential.Password = password;
-        usersAccount.Credentials.add(userCredential);        
-        fileWriter.SaveToFile(absolutePath, usersAccount);
+        Credential userCredential = new Credential(userName, password);
+        usersAccount.addCredential(userCredential);        
+        fileWriter.saveToFile(absolutePath, usersAccount);
         return new UserAccountCreationStatus(true, null, null);
     }
 }

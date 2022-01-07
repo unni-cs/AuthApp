@@ -5,10 +5,6 @@ import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.PrintStream;
-
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -46,26 +42,11 @@ public class AppTest
         App app = mock(App.class);
 
         when(app.anotherMessage()).thenReturn(true);
-        when(app.ShowMsg()).thenCallRealMethod();
+        when(app.showMsg()).thenCallRealMethod();
 
-        boolean actual = app.ShowMsg();
+        boolean actual = app.showMsg();
 
         assertTrue(actual);
         verify(app, times(1)).anotherMessage();
-    }
-
-    public void testAppMock() throws IOException
-    {
-        //Sample to test out.print
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(outputStream));
-
-        App.ShowMessage();
-
-        outputStream.flush();
-
-        String message = new String(outputStream.toByteArray());
-
-        assertTrue(message.contains("test"));        
-    }
+    }    
 }

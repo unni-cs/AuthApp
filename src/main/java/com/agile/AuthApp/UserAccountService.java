@@ -7,11 +7,11 @@ import com.google.gson.JsonSyntaxException;
 
 public class UserAccountService {
    
-    private Validator userNameValidator = new UserNameValidator();
-    private Validator passwordValidator =  new PasswordValidator();
+    private IValidator userNameValidator = new UserNameValidator();
+    private IValidator passwordValidator =  new PasswordValidator();
 
-    private String invalidUserNameMessage = "Username you have enterd is not valid";
-    private String invalidUPasswordMessage = "Password you have enterd is not valid";
+    private static final String INVALIDUSERNAMEMESSAGE = "Username you have enterd is not valid";
+    private static final String INVALIDUPASSWORDMESSAGE = "Password you have enterd is not valid";
 
 
     private UserAccountsProvider userAccountsProvider = new UserAccountsProvider();
@@ -21,8 +21,8 @@ public class UserAccountService {
         var isValidUserName = userNameValidator.isValid(userName);
         var isValidPassword = passwordValidator.isValid(password);
         if(!isValidUserName || !isValidPassword){
-            String invalidUserName = isValidUserName ? null: invalidUserNameMessage;
-            String invalidPassword = isValidPassword ? null: invalidUPasswordMessage;
+            String invalidUserName = isValidUserName ? null: INVALIDUSERNAMEMESSAGE;
+            String invalidPassword = isValidPassword ? null: INVALIDUPASSWORDMESSAGE;
             return new UserAccountCreationStatus(false, invalidUserName, invalidPassword);
             
         }
