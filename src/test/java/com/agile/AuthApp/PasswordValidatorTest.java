@@ -115,4 +115,15 @@ public class PasswordValidatorTest extends TestCase{
         //Then
         assertFalse(actual);
     }
+
+    public void test_WhenPasswordLengthExceedsMaxLimit_ShouldReturnFalse(){
+        //Given
+        String password = "11aa1324124adasdasdasd1231b";
+
+        //When
+        boolean actual = validator.isValid(password);
+
+        //Then
+        assertFalse(actual);
+    }
 }

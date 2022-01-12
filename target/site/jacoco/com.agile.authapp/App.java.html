@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>App.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">authapp</a> &gt; <a href="index.source.html" class="el_package">com.agile.authapp</a> &gt; <span class="el_source">App.java</span></div><h1>App.java</h1><pre class="source lang-java linenums">package com.agile.authapp;
+
+import java.io.IOException;
+import java.util.Scanner;
+import java.util.logging.Level;
+
+import com.google.gson.JsonIOException;
+import com.google.gson.JsonSyntaxException;
+
+/**
+ * Hello world!
+ *
+ */
+<span class="nc" id="L14">public class App </span>
+{
+<span class="fc" id="L16">    static Scanner scanner = new Scanner(System.in);</span>
+<span class="fc" id="L17">    static java.util.logging.Logger logger = java.util.logging.Logger.getGlobal();</span>
+    public static void main( String[] args ) throws JsonIOException, JsonSyntaxException, IOException
+    {
+<span class="nc" id="L20">        logger.log(Level.INFO, &quot;Welcome to Auth App!&quot;);</span>
+<span class="nc" id="L21">        logger.log(Level.INFO, &quot;Already have an account, press 1 to login. Press 2 to create an account.&quot; );</span>
+<span class="nc" id="L22">        int option = scanner.nextInt();</span>
+<span class="nc bnc" id="L23" title="All 2 branches missed.">        if(option == 1){</span>
+<span class="nc" id="L24">            login();</span>
+        }
+<span class="nc bnc" id="L26" title="All 2 branches missed.">        else if(option == 2){</span>
+<span class="nc" id="L27">            createAccount();</span>
+<span class="nc" id="L28">            login();</span>
+        }
+        else{
+<span class="nc" id="L31">            logger.log(Level.INFO, &quot;Invalid option. Closing the App&quot; );</span>
+<span class="nc" id="L32">            System.exit(0);</span>
+        }
+<span class="nc" id="L34">        scanner.close();</span>
+<span class="nc" id="L35">    }</span>
+
+    public static void createAccount() throws JsonIOException, JsonSyntaxException, IOException{
+<span class="nc" id="L38">        logger.log(Level.INFO, &quot;Create Account&quot; );</span>
+<span class="nc" id="L39">        logger.log(Level.INFO, &quot;UserName restrictions: Only Alphabets, Min Length = 1 and Max Length = 11&quot; );</span>
+<span class="nc" id="L40">        logger.log(Level.INFO, &quot;Password restrictions: Only number&quot; );</span>
+
+<span class="nc" id="L42">        logger.log(Level.INFO, &quot;Enter your User Name:&quot; );</span>
+<span class="nc" id="L43">        String userName = scanner.next();</span>
+<span class="nc" id="L44">        logger.log(Level.INFO, &quot;Enter your Password:&quot; );</span>
+<span class="nc" id="L45">        String password = scanner.next();</span>
+
+<span class="nc" id="L47">        UserAccountService userAccountService = new UserAccountService(new UserNameValidator(), new PasswordValidator(), new UserAccountsProvider());</span>
+<span class="nc" id="L48">        UserAccountCreationStatus userAccount = userAccountService.createAccount(userName, password);</span>
+
+<span class="nc bnc" id="L50" title="All 2 branches missed.">        if(userAccount.isAccountCreationSuccess){</span>
+<span class="nc" id="L51">            logger.log(Level.INFO, &quot;Successfuly created the account&quot; );</span>
+        }
+        else{
+<span class="nc" id="L54">            logger.log(Level.INFO, &quot;Your account was not created, please correct the issue/s&quot; );</span>
+           
+<span class="nc bnc" id="L56" title="All 2 branches missed.">           if(userAccount.userNameValidationMessage != null) {</span>
+<span class="nc" id="L57">            logger.log(Level.INFO, userAccount.userNameValidationMessage );</span>
+           }
+<span class="nc bnc" id="L59" title="All 2 branches missed.">           if(userAccount.passwordValidationMessage != null) {</span>
+<span class="nc" id="L60">            logger.log(Level.INFO, userAccount.passwordValidationMessage );</span>
+           }
+        }
+<span class="nc" id="L63">    }</span>
+
+    public static void login() throws IOException{
+<span class="nc" id="L66">        logger.log(Level.INFO, &quot;Enter UserName and Password for Login:&quot; );</span>
+<span class="nc" id="L67">        logger.log(Level.INFO, &quot;UserName:&quot; );</span>
+<span class="nc" id="L68">        String userName = scanner.next();</span>
+<span class="nc" id="L69">        logger.log(Level.INFO, &quot;Password:&quot; );</span>
+<span class="nc" id="L70">        String password = scanner.next();</span>
+<span class="nc" id="L71">        AuthService authService = new AuthService();</span>
+<span class="nc" id="L72">        User user = authService.authenticateUser(userName, password);</span>
+<span class="nc bnc" id="L73" title="All 2 branches missed.">        if(user.isAuthenticated()){</span>
+<span class="nc" id="L74">            logger.log(Level.INFO, &quot;Login Successfull&quot; );</span>
+        }
+        else{
+<span class="nc" id="L77">            String errorMessage = user.errorMessage();</span>
+<span class="nc" id="L78">            logger.log(Level.INFO, errorMessage);</span>
+        }
+<span class="nc" id="L80">    }</span>
+
+    //#region To be deleted
+    //Just for test purpose // To be deleted...
+    public static void showMessage(){
+<span class="nc" id="L85">        logger.log(Level.INFO, &quot;test&quot;);</span>
+<span class="nc" id="L86">    }</span>
+
+    public boolean showMsg(){
+<span class="fc" id="L89">        return anotherMessage();</span>
+    }
+
+    public boolean anotherMessage(){
+<span class="nc" id="L93">        return false;</span>
+    }
+    //#endregion
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

@@ -2,5 +2,5 @@ projectKey=authApp
 serverUrl=http://localhost:9000
 serverVersion=9.2.4.50792
 dashboardUrl=http://localhost:9000/dashboard?id=authApp
-ceTaskId=AX4zQgOK1rF5MrTWxiAR
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AX4zQgOK1rF5MrTWxiAR
+ceTaskId=AX5M2CvOgcH7w8tT39ac
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AX5M2CvOgcH7w8tT39ac

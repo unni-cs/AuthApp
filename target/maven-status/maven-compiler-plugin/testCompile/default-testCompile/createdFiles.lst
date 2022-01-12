@@ -1,5 +1,7 @@
 com\agile\authapp\AppTest.class
-com\agile\authapp\PasswordValidatorTest.class
-com\agile\authapp\UserNameValidatorTest.class
 com\agile\authapp\AuthServiceTest.class
 com\agile\authapp\UserAccountsProviderTest.class
+com\agile\authapp\PasswordValidatorTest.class
+com\agile\authapp\UserAccountCreationStatusTest.class
+com\agile\authapp\UserAccountServiceTest.class
+com\agile\authapp\UserNameValidatorTest.class

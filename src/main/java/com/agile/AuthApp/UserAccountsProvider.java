@@ -30,6 +30,6 @@ public class UserAccountsProvider {
         Credential userCredential = new Credential(userName, password);
         usersAccount.addCredential(userCredential);        
         fileWriter.saveToFile(absolutePath, usersAccount);
-        return new UserAccountCreationStatus(true, null, null);
+        return new UserAccountCreationStatus(true,true);
     }
 }

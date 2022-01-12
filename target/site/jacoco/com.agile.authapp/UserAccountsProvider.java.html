@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UserAccountsProvider.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">authapp</a> &gt; <a href="index.source.html" class="el_package">com.agile.authapp</a> &gt; <span class="el_source">UserAccountsProvider.java</span></div><h1>UserAccountsProvider.java</h1><pre class="source lang-java linenums">package com.agile.authapp;
+
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonIOException;
+import com.google.gson.JsonSyntaxException;
+
+<span class="fc" id="L13">public class UserAccountsProvider {   </span>
+    private static final String RESOURCEFILEPATH = &quot;resources/UserAccounts.json&quot;;
+<span class="fc" id="L15">    File file = new File(RESOURCEFILEPATH);</span>
+<span class="fc" id="L16">    UserAccountFileWriter fileWriter = new UserAccountFileWriter();</span>
+
+    public UsersAccount getUserAccounts() throws IOException {
+<span class="fc" id="L19">        String path = file.getAbsolutePath();</span>
+<span class="fc" id="L20">        String fileContent = new String(Files.readAllBytes(Paths.get(path)));        </span>
+<span class="fc" id="L21">        return new Gson().fromJson(fileContent, UsersAccount.class);    </span>
+    }
+
+    public UserAccountCreationStatus saveUserAccount(String userName, String password) throws JsonIOException, JsonSyntaxException, IOException {
+<span class="fc" id="L25">        String absolutePath = file.getAbsolutePath();</span>
+<span class="fc" id="L26">        Path filePath = Paths.get(absolutePath);</span>
+<span class="fc" id="L27">        String fileContent = new String(Files.readAllBytes(filePath));        </span>
+<span class="fc" id="L28">        UsersAccount usersAccount = new Gson().fromJson(fileContent, UsersAccount.class);    </span>
+        
+<span class="fc" id="L30">        Credential userCredential = new Credential(userName, password);</span>
+<span class="fc" id="L31">        usersAccount.addCredential(userCredential);        </span>
+<span class="fc" id="L32">        fileWriter.saveToFile(absolutePath, usersAccount);</span>
+<span class="fc" id="L33">        return new UserAccountCreationStatus(true,true);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.6.202009150832</span></div></body></html>

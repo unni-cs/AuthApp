@@ -1,0 +1,12 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+authapp,com.agile.authapp,UserAccountService,0,38,1,3,0,10,1,3,0,2
+authapp,com.agile.authapp,UserAccountCreationStatus,0,22,0,8,0,7,0,5,0,1
+authapp,com.agile.authapp,Credential,0,15,0,0,0,6,0,3,0,3
+authapp,com.agile.authapp,PasswordValidator,0,72,0,16,0,16,0,15,0,7
+authapp,com.agile.authapp,AuthService,0,53,0,4,0,9,0,5,0,3
+authapp,com.agile.authapp,UserAccountsProvider,0,78,0,0,0,14,0,3,0,3
+authapp,com.agile.authapp,App,157,11,12,0,45,3,12,2,6,2
+authapp,com.agile.authapp,UserNameValidator,0,58,0,14,0,9,0,13,0,6
+authapp,com.agile.authapp,UserAccountFileWriter,21,3,0,0,5,1,1,1,1,1
+authapp,com.agile.authapp,User,0,15,0,0,0,6,0,3,0,3
+authapp,com.agile.authapp,UsersAccount,0,17,0,0,0,6,0,3,0,3

@@ -44,7 +44,7 @@ public class App
         logger.log(Level.INFO, "Enter your Password:" );
         String password = scanner.next();
 
-        UserAccountService userAccountService = new UserAccountService();
+        UserAccountService userAccountService = new UserAccountService(new UserNameValidator(), new PasswordValidator(), new UserAccountsProvider());
         UserAccountCreationStatus userAccount = userAccountService.createAccount(userName, password);
 
         if(userAccount.isAccountCreationSuccess){
